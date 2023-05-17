@@ -1,1 +1,1 @@
-# Gaming 2023
+# Scripting for Animation Gaming 2023
