@@ -1,12 +1,11 @@
-//Use this file to store your work to demonstrate your understanding of operators
-//Make sure your work is different from the instructors examples or your peers
+//Code should display Hello World instead of HW like it did before
 using System;
 
 public class HelloWorld
 {
     public static void Main(string[] args)
     {
-        //Change "HW" to "Hello World"
-        Console.WriteLine("HW");
+        //"HW" has been changed to "Hello World"
+        Console.WriteLine("Hello World");
     }    
 }
