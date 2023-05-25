@@ -1,11 +1,10 @@
-//Use this file to store your work to demonstrate your understanding of operators
-//Make sure your work is different from the instructors examples or your peers
-using Sytem;
+//This is corrected code that should display HW
+using System;
 
 public class CorrectTheErrors
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("HW);
-      
+        Console.WriteLine("HW");
+	}
 }
