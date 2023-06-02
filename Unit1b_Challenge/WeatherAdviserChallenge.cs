@@ -1,3 +1,4 @@
+//This script is designed to show the current temprature and if it's warm, cold, or nice
 using System;
 					
 public class TemperatureAdviser
