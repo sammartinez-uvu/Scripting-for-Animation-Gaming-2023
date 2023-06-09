@@ -14,10 +14,12 @@ public class NumberGame{
 		
 		/*myInput = new Inputs();
 		myInput.FindInput(5); */
-		int guessAmount = 5;
-		int guessInput = 5;
-		int guessTotal = 0;
-		int randomNumber = 7;
+		
+		
+		int guessAmount = 5; //how many guess are aloted
+		int guessInput = 5; //the guess input the user uses
+		int guessTotal = 0; //how many guesses have been used
+		int randomNumber = 7; //the random number
 		for(int i = 0; i < guessAmount ; i++){;
 			if(guessInput > randomNumber){
 				guessTotal ++;
