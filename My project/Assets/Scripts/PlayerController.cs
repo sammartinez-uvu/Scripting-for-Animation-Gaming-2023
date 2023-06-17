@@ -5,34 +5,38 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    private float moveSpeed = 5f;
-    private float jumpForce = 5f;
-    private float gravity = 9.81f;
-
-
+    // character controller component initialize
     private CharacterController controller;
+    
+    //movement variables
+    private float moveSpeed = 5.5f;
     private Vector3 moveDirection;
-    private bool isJumping;
-    private bool isGrounded;
-
+    private float horizontalInput;
+    private float verticalInput;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<CharacterController>();
+        GameObject playerCharacter = GameObject.FindGameObjectWithTag("Player");
+        controller = playerCharacter.GetComponent<CharacterController>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float horizontallInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
 
+        moveDirection = new Vector3(horizontalInput * moveSpeed, 0, verticalInput * moveSpeed);
+        controller.Move(moveDirection * Time.deltaTime);
+
+        /*
         if (controller.isGrounded && Input.GetButtonDown("Jump")) { 
             isJumping = true;
         }
         
-        controller.Move(moveDirection * Time.deltaTime);
+        
 
         if(isJumping == false) {
 
@@ -45,6 +49,8 @@ public class PlayerController : MonoBehaviour
                 moveDirection.y = gravity * Time.deltaTime;
 
             }
+        
         }
+        */
     }
 }
