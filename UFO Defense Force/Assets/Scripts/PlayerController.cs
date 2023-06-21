@@ -10,11 +10,10 @@ public class PlayerController : MonoBehaviour
 
     //How far the player can go before getting stopped
     public float xRange;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    //Blaster Vars
+    public Transform blaster;
+    public GameObject lazerBolt;
 
     // Update is called once per frame
     void Update()
@@ -24,8 +23,8 @@ public class PlayerController : MonoBehaviour
 
         //Moves player left & Right
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-        //
 
+        //Boundries
         //Keeps left side
         if (transform.position.x < -xRange) {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
@@ -34,5 +33,19 @@ public class PlayerController : MonoBehaviour
         if (transform.position.x > xRange){
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
+
+        //Blaster Updates
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            //creates the lazerBolt at the blaster transorm position maintaining obj rotation
+            Instantiate(lazerBolt, blaster.transform.position, lazerBolt.transform.rotation);
+        }
     }
+
+    //Delete any object with a trigger that hits the player
+    private void OnTriggerEnter(Collider other) {
+
+        Destroy(other.gameObject);
+    
+    }
+
 }
