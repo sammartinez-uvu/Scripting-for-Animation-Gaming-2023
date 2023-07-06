@@ -15,6 +15,13 @@ public class PlayerController : MonoBehaviour
     public Transform blaster;
     public GameObject lazerBolt;
 
+    public GameManager gameManager;
+
+    void Start() {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); // Reference Game Manager scripot on GameManager object
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -35,7 +42,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Blaster Updates
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false) { //Second condition gameManager.isGameOver prevents the player from shooting after it's true
             //creates the lazerBolt at the blaster transorm position maintaining obj rotation
             Instantiate(lazerBolt, blaster.transform.position, lazerBolt.transform.rotation);
         }
