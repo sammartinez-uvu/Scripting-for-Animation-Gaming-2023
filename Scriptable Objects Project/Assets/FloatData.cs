@@ -7,5 +7,13 @@ public class FloatData : ScriptableObject {
 
     public void UpdateValue(float num) {
         value += num;
+        UpdateLabel();
     }
+
+    public void UpdateLabel()
+    {
+        UpdateLabel().text = dataObj.value.ToString();
+
+    }
+
 }
