@@ -7,7 +7,8 @@ public class MatchBehaviour : MonoBehaviour
     public UnityEvent matchEvent, noMatchEvent;
 
 
-    private void OnTriggerEnter(Collider other){
+    private void OnTriggerEnter(Collider other)
+    {
 
         var tempObj = other.GetComponent<IDContainerBehaviour>(); //otherID is the other object's ID
         if (tempObj == null) //if the tempObj is not null then set the other ID to the tempObj's ID
@@ -20,7 +21,8 @@ public class MatchBehaviour : MonoBehaviour
         {
             matchEvent.Invoke();
         }
-        else { 
+        else
+        {
             noMatchEvent.Invoke();
         }
     }
